@@ -4,22 +4,20 @@ description: The Docker registry image fronted by an nginx SSL proxy container
 keywords: registry
 type: Default
 documentation: |-
-  ### We recommend reading: http://www.centurylinklabs.com/tutorials/how-to-secure-your-private-docker-registry/
+  #### We recommend reading [The accompanying Post on our Blog](http://www.centurylinklabs.com/tutorials/how-to-secure-your-private-docker-registry)
 
   #Instructions
 
-  ##Set the PUBLIC_IP_ADDR
+  ###Set the PUBLIC_IP_ADDR
 
   This can be a CNAME or public IP address of the server the registry will be running on.
 
-  ##Generate the Basic auth credentials
+  ###Generate the Basic auth credentials
 
-  Create a `.htpasswd` file to hold the authentication credentials. Save the file to be passed in as a volume in the template.
+  Create an `.htpasswd` file to hold the authentication credentials.
+  
+  You will need to volume mount the above file to `/etc/ssl/certs/docker-registry` on the container.
 
-  ~~~
-    $ htpasswd -c ~/my-registry.htpasswd USERNAME
-  $ # then enter password at prompt
-  ~~~
 
   ##Generate the self-signed SSL certificate
   
@@ -53,9 +51,9 @@ images:
   - variable: PUBLIC_IP_ADDR
     value:
   volumes:
-  - host_path: "./certs/my-registry.crt"
+  - host_path:
     container_path: "/etc/ssl/certs/docker-registry"
-  - host_path: "./certs/my-registry.key"
+  - host_path:
     container_path: "/etc/ssl/private/docker-registry"
-  - host_path: "./my-registry.htpasswd"
+  - host_path:
     container_path: "/etc/nginx/docker-registry.htpasswd"
