@@ -1,5 +1,5 @@
 ---
-name: secure Docker registry
+name: Secure Docker registry
 description: The Docker registry image fronted by an nginx SSL proxy container
 keywords: registry
 type: Default
