@@ -42,10 +42,4 @@ images:
   environment:
   - variable: PUBLIC_IP_ADDR
     value:
-  volumes:
-  - host_path:
-    container_path: "/etc/ssl/certs/docker-registry"
-  - host_path:
-    container_path: "/etc/ssl/private/docker-registry"
-  - host_path:
-    container_path: "/etc/nginx/docker-registry.htpasswd"
+
