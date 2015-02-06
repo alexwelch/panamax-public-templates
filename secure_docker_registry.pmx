@@ -16,16 +16,16 @@ documentation: |-
 
   Create a `.htpasswd` file to hold the authentication credentials. Save the file to be passed in as a volume in the template.
 
-  ```
+  ~~~
   $ htpasswd -c ~/my-registry.htpasswd USERNAME
   $ # then enter password at prompt
-  ```
+  ~~~
 
   ##Generate the self-signed SSL certificate
   
   Save the certs directory to be used in the volume mounts of the template as well.
   
-  ```
+  ~~~
   $ mkdir ~/certs
   # the value for COMMAN_NAME should be updated to match the public CNAME or IP address of the server hosting the registry.
   $ docker run --rm  -e COMMON_NAME=66.555.98.212 -e KEY_NAME=my-registry -v ~/certs:/certs centurylink/openssl
@@ -33,7 +33,8 @@ documentation: |-
   # check that the container is running:
   $ docker ps | grep registry
   803c77e2f328        registry:latest                          "docker-registry"      19 minutes ago      Up 19 minutes       5000/tcp                                  			registry
-  ```
+  ~~~
+  
 images:
 - name: registry_0.9.0
   source: registry:0.9.0
