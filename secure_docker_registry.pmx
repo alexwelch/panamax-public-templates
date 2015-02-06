@@ -6,7 +6,7 @@ type: Default
 documentation: |-
   #### We recommend reading [The accompanying Post on our Blog](http://www.centurylinklabs.com/tutorials/how-to-secure-your-private-docker-registry)
 
-  #Instructions
+  ##Instructions
 
   ###Set the PUBLIC_IP_ADDR on nginx-ssl-proxy container
 
@@ -19,7 +19,7 @@ documentation: |-
   You will need to volume mount the above file to `/etc/ssl/certs/docker-registry` on the nginx-ssl-proxy container.
 
 
-  ##Supply the public SSL cert and private SSL key
+  ###Supply the public SSL cert and private SSL key
   
   You will need to volume mount the private SSL key to `/etc/ssl/private/docker-registry` on the nginx-ssl-proxy container.
   
