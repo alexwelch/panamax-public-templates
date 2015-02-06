@@ -22,7 +22,9 @@ documentation: |-
   ```
 
   ##Generate the self-signed SSL certificate
+  
   Save the certs directory to be used in the volume mounts of the template as well.
+  
   ```
   $ mkdir ~/certs
   # the value for COMMAN_NAME should be updated to match the public CNAME or IP address of the server hosting the registry.
