@@ -4,25 +4,29 @@ description: The Docker registry image fronted by an nginx SSL proxy container
 keywords: registry
 type: Default
 documentation: |-
-  We recommend reading: http://www.centurylinklabs.com/tutorials/how-to-secure-your-private-docker-registry/
-  
-  #Instructions#
-  ##Set the PUBLIC_IP_ADDR##
+  ### We recommend reading: http://www.centurylinklabs.com/tutorials/how-to-secure-your-private-docker-registry/
+
+  #Instructions
+
+  ##Set the PUBLIC_IP_ADDR
+
   This can be a CNAME or public IP address of the server the registry will be running on.
 
-  ##Generate the Basic auth credentials##
-  Create a ```.htpasswd``` file to hold the authentication credentials. Save the file to be passed in as a volume in the template.
+  ##Generate the Basic auth credentials
+
+  Create a `.htpasswd` file to hold the authentication credentials. Save the file to be passed in as a volume in the template.
+
   ```
   $ htpasswd -c ~/my-registry.htpasswd USERNAME
   $ # then enter password at prompt
   ```
 
-  ##Generate the self-signed SSL certificate##
+  ##Generate the self-signed SSL certificate
   Save the certs directory to be used in the volume mounts of the template as well.
   ```
-  $ mkdir ~/certs\n
-  # the value for COMMAN_NAME should be updated to match the public CNAME or IP address of the server hosting the registry.\n
-  $ docker run --rm  -e COMMON_NAME=66.555.98.212 -e KEY_NAME=my-registry -v ~/certs:/certs centurylink/openssl\n
+  $ mkdir ~/certs
+  # the value for COMMAN_NAME should be updated to match the public CNAME or IP address of the server hosting the registry.
+  $ docker run --rm  -e COMMON_NAME=66.555.98.212 -e KEY_NAME=my-registry -v ~/certs:/certs centurylink/openssl
 
   # check that the container is running:
   $ docker ps | grep registry
